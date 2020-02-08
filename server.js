@@ -5,22 +5,24 @@ const compression = require("compression");
 require('dotenv/config');
 const connectDB = require("./config/connectDB.js");
 
-//Bring in models
-//const db = require("./models");
-const PORT = process.env.PORT || 9090;
-const app = express();
+// Bring in models
+const db = require("./models");
+
+// Create an instance of the express app.
+let app = express();
 
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 app.use(express.static("public"));
+
+const PORT = process.env.PORT || 9090;
 
 
 /******************************* MiddleWare  ****************************/
 
 
-/*GET REQUESTS
+//GET REQUESTS
 
 app.get("/api/transaction", (req,res) => {
   db.Transaction.find({})
@@ -63,11 +65,10 @@ app.post("/api/transaction/bulk", (req,res) => {
       res.json(err);
   });
 });
-*/
+
 
 /******************************* Connect to db  ****************************/
-/*connectDB()*/
-
+connectDB()
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
