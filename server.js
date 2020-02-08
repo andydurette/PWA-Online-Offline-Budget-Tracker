@@ -6,7 +6,7 @@ require('dotenv/config');
 const connectDB = require("./config/connectDB.js");
 
 //Bring in models
-const db = require("./models");
+//const db = require("./models");
 const PORT = process.env.PORT || 9090;
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(express.static("public"));
 /******************************* MiddleWare  ****************************/
 
 
-//GET REQUESTS
+/*GET REQUESTS
 
 app.get("/api/transaction", (req,res) => {
   db.Transaction.find({})
@@ -63,10 +63,11 @@ app.post("/api/transaction/bulk", (req,res) => {
       res.json(err);
   });
 });
-
+*/
 
 /******************************* Connect to db  ****************************/
-connectDB()
+/*connectDB()*/
+
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
