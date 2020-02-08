@@ -1,6 +1,4 @@
 const express = require("express");
-const bodyParser = require('body-parser');
-const path = require('path');
 const compression = require("compression");
 
 // Database Connection Request
@@ -9,24 +7,14 @@ const connectDB = require("./config/connectDB.js");
 
 //Bring in models
 const db = require("./models");
+const PORT = process.env.PORT || 9090;
 const app = express();
 
 app.use(compression());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-// Host Static Files so css and js files can be retrieved
-
-app.use(express.static(path.join(__dirname, '/public')));
-// Set the port of our application, process.env.PORT lets the port be set by Heroku
-let PORT = process.env.PORT || 9090;
-
-
-/******************************* Routes  ****************************/
-
-app.get("/", (req,res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+app.use(express.static("public"));
 
 
 /******************************* MiddleWare  ****************************/
