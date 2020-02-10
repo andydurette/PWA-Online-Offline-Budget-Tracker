@@ -6,8 +6,6 @@ var FILES_TO_CACHE = [
   '/db.js',
   '/manifest.json',
   '/favicon.ico',
-  'font-awesome.min.css',
-  'chart.js',
   '/icons/icon-192x192.png',
   '/icons/icon-512x512.png'
 ];
