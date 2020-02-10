@@ -57,7 +57,7 @@ app.post("/api/transaction/bulk", (req,res) => {
   data.forEach(data => {
     let budget = {};
     budget.date = data.date;
-    buget.name = data.name,
+    budget.name = data.name,
     budget.value = data.value;
     formattedData.push(budget);
   });
